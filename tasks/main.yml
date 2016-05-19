@@ -1,2 +1,18 @@
 ---
-# tasks file for ansible-vpc-subnets
+- name: Create subnets
+  local_action:
+    module: ec2_vpc_subnet
+    aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
+    aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
+    state: present
+    region: '{{ item.region }}'
+    vpc_id: '{{ item.vpc_id }}'
+    az: '{{ item.availability_zone }}'
+    cidr: '{{ item.cidr }}'
+    resource_tags:
+      Name: '{{ item.name_tag }}'
+      app_name: '{{ item.app_name }}'
+      app_environment: '{{ item.app_environment }}'
+      az: '{{ item.availability_zone }}'
+      region: '{{ item.region }}'
+  with_items: '{{ subnets }}'
