@@ -46,7 +46,7 @@ Example Playbook
 
 Command-line example usage
 
-ansible-playbook subnets.yml -i local -e "environment=production"
+```ansible-playbook subnets.yml -i local -e "environment=production"```
 
 License
 -------
