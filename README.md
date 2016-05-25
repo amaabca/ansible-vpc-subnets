@@ -16,13 +16,13 @@ One to many subnets to be created for an application.
 
 ```
 subnets:
-  - availability_zone: AZ for the subnet. ex. us-west-1a
+  - az: AZ for the subnet. ex. us-west-1a
     cidr: IP range for the subnet
     region: Region for the subnet. ex. us-west-1
     vpc_id: VPC ID for the subnet. ex. vpc-abc123
     app_name: App that the subnet will support. ex. waffles
     app_environment: App environment. ex. production
-    name_tag: Used to tag the subnet for things like dynamic inventory. ex. "us-west-1a-waffles-production"
+    Name: Used to tag the subnet for things like dynamic inventory. ex. "us-west-1a-waffles-production"
 ```
 
 Dependencies

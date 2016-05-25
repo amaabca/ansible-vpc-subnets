@@ -7,12 +7,12 @@
     state: present
     region: '{{ item.region }}'
     vpc_id: '{{ item.vpc_id }}'
-    az: '{{ item.availability_zone }}'
+    az: '{{ item.az }}'
     cidr: '{{ item.cidr }}'
     resource_tags:
-      Name: '{{ item.name_tag }}'
+      Name: '{{ item.Name }}'
       app_name: '{{ item.app_name }}'
       app_environment: '{{ item.app_environment }}'
-      az: '{{ item.availability_zone }}'
+      az: '{{ item.az }}'
       region: '{{ item.region }}'
   with_items: '{{ subnets }}'
