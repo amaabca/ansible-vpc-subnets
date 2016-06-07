@@ -1,7 +1,7 @@
 Role Name
 =========
 
-An ansible role for setting up a list of AWS VPC subnets
+An ansible role for setting up a list of AWS VPC subnets.
 
 Requirements
 ------------
