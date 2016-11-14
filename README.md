@@ -6,8 +6,12 @@ An ansible role for setting up a list of AWS VPC subnets.
 Requirements
 ------------
 
-Uses the ec2_vpc_subnet extras module (http://docs.ansible.com/ansible/ec2_vpc_subnet_module.html)
-Uses the python boto package for cloud services.
+```bash
+pip install virtualenv
+virtualenv .
+source bin/activate
+pip install -r requirements.txt
+```
 
 Role Variables
 --------------
@@ -51,7 +55,7 @@ Command-line example usage
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
