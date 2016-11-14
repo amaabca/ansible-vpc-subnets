@@ -11,8 +11,8 @@
     cidr: '{{ item.cidr }}'
     resource_tags:
       Name: '{{ item.Name }}'
-      app_name: '{{ item.app_name }}'
-      app_environment: '{{ item.app_environment }}'
+      Application: '{{ item.app_name }}'
+      Environment: '{{ item.app_environment }}'
       az: '{{ item.az }}'
       region: '{{ item.region }}'
   with_items: '{{ subnets }}'
