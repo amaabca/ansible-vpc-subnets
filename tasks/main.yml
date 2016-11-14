@@ -13,6 +13,5 @@
       Name: '{{ item.Name }}'
       Application: '{{ item.app_name }}'
       Environment: '{{ item.app_environment }}'
-      az: '{{ item.az }}'
-      region: '{{ item.region }}'
+      ManagedByAnsible: '{{ ansible_vpc_subnets_tags_ManagedByAnsible }}'
   with_items: '{{ subnets }}'
