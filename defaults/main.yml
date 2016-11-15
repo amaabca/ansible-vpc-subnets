@@ -1,2 +1,3 @@
 ---
 # defaults file for ansible-vpc-subnets
+ansible_vpc_subnets_tags_ManagedByAnsible: "{{ ansible_version.full }}"

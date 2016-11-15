@@ -1,38 +1,63 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+An ansible role for setting up a list of AWS VPC subnets.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+```bash
+pip install virtualenv
+virtualenv .
+source bin/activate
+pip install -r requirements.txt
+```
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+One to many subnets to be created for an application.
+
+```
+subnets:
+  - az: AZ for the subnet. ex. us-west-1a
+    cidr: IP range for the subnet
+    region: Region for the subnet. ex. us-west-1
+    vpc_id: VPC ID for the subnet. ex. vpc-abc123
+    app_name: App that the subnet will support. ex. waffles
+    app_environment: App environment. ex. production
+    Name: Used to tag the subnet for things like dynamic inventory. ex. "us-west-1a-waffles-production"
+```
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```
+- name: This creates the VPC subnets the application
+  hosts: localhost
+  vars_files:
+    - "vars/{{ environment }}/subnets.yml"
+  connection: local
+  roles:
+    - ansible-vpc-subnets
+```
+
+Command-line example usage
+
+```ansible-playbook subnets.yml -i local -e "environment=production"```
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+https://github.com/amaabca
